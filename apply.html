@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신청하기 — ALL ABOUT SOUND in ATL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a href="index.html" class="brand">ALL ABOUT SOUND <span>in ATL</span></a>
+  <nav class="top-links">
+    <a href="index.html">홈</a>
+    <a href="services.html">서비스</a>
+    <a href="pricing.html">요금</a>
+    <a href="portfolio.html">포트폴리오</a>
+    <a href="about.html">소개</a>
+    <a href="apply.html" class="cta active">신청하기</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="eyebrow">apply now</div>
+  <h1 class="serif">신청서를 작성해주세요</h1>
+  <p>아래 내용을 보내주시면 이메일로 접수되어 하루 안에 답변드립니다.</p>
+</div>
+
+<section>
+  <form class="form-wrap" id="apply-form">
+    <div class="form-grid2">
+      <div class="form-row">
+        <label for="name">이름</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-row">
+        <label for="phone">연락처</label>
+        <input type="tel" id="phone" required>
+      </div>
+    </div>
+    <div class="form-grid2">
+      <div class="form-row">
+        <label for="type">행사 종류</label>
+        <select id="type">
+          <option>결혼식 (Wedding)</option>
+          <option>파티 (Party)</option>
+          <option>기타 이벤트 (Any Event)</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="date">희망 날짜</label>
+        <input type="date" id="date">
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="place">장소 / 지역</label>
+      <input type="text" id="place" placeholder="예: 둘루스, 실외 정원 등">
+    </div>
+    <div class="form-row">
+      <label for="msg">상세 내용</label>
+      <textarea id="msg" placeholder="예상 인원, 시간대, 특별히 필요한 사항 등을 적어주세요"></textarea>
+    </div>
+    <button type="submit" class="form-submit">신청서 보내기</button>
+    <div class="form-note">'신청서 보내기'를 누르면 작성하신 내용이 담긴 이메일 창이 열립니다. 그대로 보내주시면 접수됩니다.</div>
+  </form>
+
+  <div class="contact-row">
+    <div class="contact-item"><div class="label">Email</div><a href="mailto:davidkang3099@gmail.com">davidkang3099@gmail.com</a></div>
+    <div class="contact-item"><div class="label">Phone</div><a href="tel:+14706013056">470-601-3056</a></div>
+  </div>
+</section>
+
+<footer>ALL ABOUT SOUND in ATL · ATLANTA, GA</footer>
+
+<script>
+  document.getElementById('apply-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const type = document.getElementById('type').value;
+    const date = document.getElementById('date').value;
+    const place = document.getElementById('place').value;
+    const msg = document.getElementById('msg').value;
+
+    const subject = encodeURIComponent(`[신청] ${type} - ${name}`);
+    const body = encodeURIComponent(
+      `이름: ${name}\n연락처: ${phone}\n행사 종류: ${type}\n희망 날짜: ${date}\n장소/지역: ${place}\n\n상세 내용:\n${msg}`
+    );
+    window.location.href = `mailto:davidkang3099@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
